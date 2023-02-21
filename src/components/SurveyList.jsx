@@ -24,3 +24,5 @@ SurveyList.PropType = {
     SurveyList: PropTypes.array,
     onSurveySelection: PropTypes.func
 };
+
+export default SurveyList;
