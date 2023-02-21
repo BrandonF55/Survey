@@ -8,11 +8,12 @@ function EditSurveyForm (props) {
     function handleEditSurveyFormSubmission(event) {
         event.preventDefault();
         props.onEditSurvey({
-            question1:event.target.question1.value,
-            question2:event.target.question2.value,
-            question3:event.target.question3.value,
-            question4:event.target.question4.value,
-            question5:event.target.question5.value,
+            name: event.target.name.value,
+            question1: event.target.question1.value,
+            question2: event.target.question2.value,
+            question3: event.target.question3.value,
+            question4: event.target.question4.value,
+            question5: event.target.question5.value,
             id: survey.id
         })
     }
@@ -20,7 +21,7 @@ function EditSurveyForm (props) {
     return (
         <React.Fragment>
             <ReusableForm
-            formSubmissionHandler={handleEditSurveyFormSubmission}
+            formSubmissionHandler = {handleEditSurveyFormSubmission}
             buttonText="Change Survey" />
         </React.Fragment>
     )

@@ -3,7 +3,9 @@ import React from "react";
 function Header() {
   return (
     <React.Fragment>
-      <h1>Survey Surveyors</h1>
+      <h1>The Surveyors</h1>
+      <hr />
+      <br />
     </React.Fragment>
   );
 }

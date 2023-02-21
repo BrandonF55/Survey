@@ -18,22 +18,24 @@ function SurveyControl() {
 
     useEffect(() => {
         const unSubscribe = onSnapshot(
-            collection(db, 'survey'),
+            collection(db, 'surveys'),
             (collectionSnapshot) => {
                 const surveys = [];
                 collectionSnapshot.forEach((doc) => {
                     surveys.push({
+                        name: doc.data().name,
                         question1: doc.data().question1,
-                        question2: doc.date().question2,
-                        question3: doc.date().question3,
-                        question4: doc.date().question4,
-                        question5: doc.date().question5,
+                        question2: doc.data().question2,
+                        question3: doc.data().question3,
+                        question4: doc.data().question4,
+                        question5: doc.data().question5,
                         id: doc.id
                     });
                 });
                 setMainSurveyList(surveys)
             },
             (error) => {
+               
             }
         );
 
@@ -41,20 +43,19 @@ function SurveyControl() {
     }, []);
 
     const handleClick = () => {
-        if (this.state.selectedSurvey != null) {
+        if (selectedSurvey != null) {
             setFromVisibleOnPage(false);
-            this.setState({
-                formVisibleOnPage: false,
-                selectedSurvey: null,
-            });
+            // new code!
+            setSelectedSurvey(null);
+            setEditing(false);
         } else {
             setFromVisibleOnPage(!formVisibleOnPage)
         }
     }
 
     const handleDeletingSurvey = async (id) => {
-        await deleteDoc(doc(db, 'survey', id));
-        selectedSurvey(null);
+        await deleteDoc(doc(db, 'surveys', id));
+        setSelectedSurvey(null);
     }
 
     const handleEditClick = () =>{
@@ -87,7 +88,7 @@ function SurveyControl() {
     } else if (editing) {
         currentlyVisibleState =
             <EditSurveyForm
-                surveys={selectedSurvey}
+                survey={selectedSurvey}
                 onEditSurvey={handleEditingSurveyInList} />;
         buttonText = 'Return To Survey';
     }else if(selectedSurvey != null) {

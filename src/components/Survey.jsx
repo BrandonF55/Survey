@@ -6,6 +6,7 @@ function Survey(props){
     return (
     <React.Fragment>
         <div onClick = {() => props.whenSurveyClicked(props.id)}>
+            <p>{props.name}</p>
             <p>{props.question1}</p>
             <p>{props.question2}</p>
             <p>{props.question3}</p>
@@ -17,6 +18,7 @@ function Survey(props){
 }
 
 Survey.propTypes = {
+    name: PropTypes.string,
     question1: PropTypes.string,
     question2: PropTypes.string,
     question3: PropTypes.string,
