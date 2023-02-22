@@ -2,7 +2,10 @@ import React from "react";
 import Survey from "./Survey";
 import PropTypes from 'prop-types'
 
+
 function SurveyList(props) {
+    const surveyClassName = 'survey-style';
+
 
     return (
         <div id="survey-list">
@@ -17,12 +20,16 @@ function SurveyList(props) {
                     question4={survey.question4}
                     question5={survey.question5}
                     id = {survey.id}
-                    key = {survey.id} />
+                    key = {survey.id}
+                    className={surveyClassName}/>
                     
             )}
         </div>
     );
 }
+
+
+
 
 
 SurveyList.propType = {

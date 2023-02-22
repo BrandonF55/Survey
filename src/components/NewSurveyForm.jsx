@@ -2,7 +2,7 @@ import React from "react";
 import PropType from 'prop-types'
 import ReusableForm from "./ReusableForm";
 
-function newSurveyForm(props){
+function NewSurveyForm(props){
     
     function handleNewSurveyFormSubmission(event) {
         event.preventDefault();
@@ -24,8 +24,8 @@ function newSurveyForm(props){
     );
 }
 
-newSurveyForm.propTypes = {
+NewSurveyForm.propTypes = {
     onNewSurveyCreation: PropType.func
 };
 
-export default newSurveyForm;
+export default NewSurveyForm;

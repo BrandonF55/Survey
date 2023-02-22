@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function Survey(props){
     return (
-    <React.Fragment>
+    <div className={props.className}>
         <div onClick = {() => props.whenSurveyClicked(props.id)}>
             <p>{props.name}</p>
             <p>{props.question1}</p>
@@ -13,7 +13,7 @@ function Survey(props){
             <p>{props.question4}</p>
             <p>{props.question5}</p>
         </div>
-    </React.Fragment>
+    </div>
     );
 }
 
